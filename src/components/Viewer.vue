@@ -65,7 +65,10 @@ export default class Viewer extends Vue {
 
   private format(str: string): string {
     let f = this.text;
-    if (this.doFormat) { f = this.usedRules.reduce((text, ruleId) => William.apply(text, 'brut', ruleId), f); }
+    if (this.doFormat) {
+      f = this.usedRules.reduce((text, ruleId) => William.apply(text, 'brut', ruleId), f);
+      f = this.usedRules.reduce((text, ruleId) => William.apply(text, 'html', ruleId), f);
+    }
     if (this.doShowInvisibles) { f = this.addInvisibles(f); }
     return f;
   }
@@ -125,6 +128,7 @@ export default class Viewer extends Vue {
       color: white;
     }
     p {
+      font-family: Arial, sans-serif;
       overflow-y: scroll;
       padding: 2em;
       margin: auto;
