@@ -137,6 +137,7 @@ export default class Viewer extends Vue {
       span {
         background: #bbbbbb;
         position: relative;
+        opacity: 0.65;
         &.invis {
           &-no_break_space {
             background: pink;
