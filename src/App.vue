@@ -1,29 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <editor @update="handleText" :text="text"></editor>
+    <viewer :text="text"></viewer>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import Editor from './components/Editor.vue';
+import Viewer from './components/Viewer.vue';
+import { text } from './TXT_JOURNAL_BIENNALE_BRUT';
 
 @Component({
   components: {
-    HelloWorld,
+    Editor,
+    Viewer,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  public text: string = text;
+
+  private handleText(e: string) {
+    this.text = e;
+  }
+}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    background: #03294f;
+  }
+
+  html * {
+    box-sizing: border-box;
+  }
+
+  #app {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
 </style>
