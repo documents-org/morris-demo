@@ -4157,8 +4157,8 @@ mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
     minimist "0.0.8"
 
 "morris@https://github.com/documents-design/morris":
-  version "0.1.10"
-  resolved "https://github.com/documents-design/morris#b73f016f266f990bad0449db1f28fbf05835ae0a"
+  version "0.1.11"
+  resolved "https://github.com/documents-design/morris#38ba3d2b2f548a0684a21be4e2e3ab42dd9ef4d5"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
