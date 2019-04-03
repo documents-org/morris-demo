@@ -8,7 +8,6 @@ Zone de test de Morris.
 git clone https://github.com/documents-design/morris-demo
 cd morris-demo
 yarn
-yarn link morris
 yarn serve
 ```
 

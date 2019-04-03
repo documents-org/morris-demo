@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "morris": "https://github.com/documents-design/morris",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^8.0.0"
