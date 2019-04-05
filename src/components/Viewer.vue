@@ -6,8 +6,11 @@
       <div><label for="">Colonne <input type="range" v-model="columnWidth"></label></div>
       <div><label for="">Taille du texte <input type="range" v-model="fontSize"></label></div>
       <div><label for="">Interligne <input type="range" v-model="lineHeight"></label></div>
+      <div><label for="">Style Scalène <input type="checkbox" v-model="styleScalene"></label></div>
       <hr>
-      <div :style="{pointerEvents: doFormat ? 'initial' : 'none', opacity: doFormat ? 1 : 0.5}">
+      <div 
+        style="height: 72vh; overflow-y: scroll"
+        :style="{pointerEvents: doFormat ? 'initial' : 'none', opacity: doFormat ? 1 : 0.5}">
         Règles
         <div v-for="rule in rules" style="margin-top: .25em;">
           <label for="">
@@ -18,7 +21,12 @@
       </div>
     </div>
     <div style="height: 100%; flex: 1; justify-content: center">
-      <p v-html="format(text)" :style="{ maxWidth: `${columnWidth}ch`, fontSize: `${fontSize}px`, lineHeight: lineHeight / 10 }"></p>
+      <p v-html="format(text)"
+         :style="{ whiteSpace: 'pre-wrap',
+                   maxWidth: `${columnWidth}ch`, 
+                   fontSize: `${fontSize}px`,
+                   lineHeight: lineHeight / 10,
+                   ...(styleScalene ? {color: '#31338a', fontFamily: 'Synthese'} : {})}"></p>
     </div>
   </div>
 </template>
@@ -45,6 +53,7 @@ export default class Viewer extends Vue {
   public columnWidth: number = 67;
   public fontSize: number = 16;
   public lineHeight: number = 10;
+  public styleScalene: boolean = true;
   public ruleMap: any = William.getRules.reduce((acc: any, r: any) => { acc[r.id] = true; return acc; }, {});
   @Prop() private text!: string;
 
